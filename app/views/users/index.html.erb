@@ -1,43 +1,46 @@
-<h1>Listing users</h1>
+<div class="row">
+  <div class="medium-12 columns">
+    <h1>Listing users</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Password</th>
-      <th>Nationality</th>
-      <th>City</th>
-      <th>Cp</th>
-      <th>Age</th>
-      <th>Career</th>
-      <th>Photo</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Password</th>
+          <th>Nationality</th>
+          <th>City</th>
+          <th>Cp</th>
+          <th>Age</th>
+          <th>Career</th>
+          <th>Photo</th>
+          <th>Description</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td><%= user.password %></td>
-        <td><%= user.nationality %></td>
-        <td><%= user.city %></td>
-        <td><%= user.cp %></td>
-        <td><%= user.age %></td>
-        <td><%= user.career %></td>
-        <td><%= user.photo %></td>
-        <td><%= user.description %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.name %></td>
+            <td><%= user.email %></td>
+            <td><%= user.password %></td>
+            <td><%= user.nationality %></td>
+            <td><%= user.city %></td>
+            <td><%= user.cp %></td>
+            <td><%= user.age %></td>
+            <td><%= user.career %></td>
+            <td><%= user.photo %></td>
+            <td><%= user.description %></td>
+            <td><%= link_to 'Show', user %></td>
+            <td><%= link_to 'Edit', edit_user_path(user) %></td>
+            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'New User', new_user_path %>
 
-<br>
+  </div>
+</div>
 
-<%= link_to 'New User', new_user_path %>
