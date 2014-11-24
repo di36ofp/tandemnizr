@@ -5,9 +5,6 @@ Rails.application.routes.draw do
   #devise_for :users
   root to: 'site#home'
 
-  resources :projects do
-    resources :entries
-  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
