@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  require 'digest'
 
   before_save :encrypt_password
 
@@ -17,14 +18,16 @@ class User < ActiveRecord::Base
                       format: { with: strong_password_regex }
   #validates :nationality
   #validates :city
-  validates :cp, :inclusion => 00000..99999
-  validates :age, :inclusion => 18..99
+  validates :cp, :allow_blank => true,
+                  :inclusion => 00000..99999
+  validates :age,  :allow_blank => true,
+                  :inclusion => 18..99
   #validates :career
   #validates :photo
   #validates :description
 
   private
   def encrypt_password
-    self.password = encrypt(password)
+    self.password = Digest::SHA2.hexdigest(password)
   end
 end
