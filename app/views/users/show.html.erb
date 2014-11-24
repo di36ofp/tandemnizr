@@ -1,54 +1,54 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="medium-12 columns">
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.name %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
+    <p>
+      <strong>Nationality:</strong>
+      <%= @user.nationality %>
+    </p>
 
-<p>
-  <strong>Nationality:</strong>
-  <%= @user.nationality %>
-</p>
+    <p>
+      <strong>City:</strong>
+      <%= @user.city %>
+    </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
+    <p>
+      <strong>Cp:</strong>
+      <%= @user.cp %>
+    </p>
 
-<p>
-  <strong>Cp:</strong>
-  <%= @user.cp %>
-</p>
+    <p>
+      <strong>Age:</strong>
+      <%= @user.age %>
+    </p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @user.age %>
-</p>
+    <p>
+      <strong>Career:</strong>
+      <%= @user.career %>
+    </p>
 
-<p>
-  <strong>Career:</strong>
-  <%= @user.career %>
-</p>
+    <p>
+      <strong>Photo:</strong>
+      <%= @user.photo %>
+    </p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @user.photo %>
-</p>
+    <p>
+      <strong>Description:</strong>
+      <%= @user.description %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @user.description %>
-</p>
+    <%= link_to 'Edit', edit_user_path(@user) %> |
+    <%= link_to 'Back', users_path %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+  </div>
+</div>
