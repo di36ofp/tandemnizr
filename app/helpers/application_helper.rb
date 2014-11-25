@@ -15,6 +15,14 @@ module ApplicationHelper
     end
   end
 
+  def user_nav_link
+    if current_user.nil?
+      render 'shared/user_links_not_loged'
+    else
+      render 'shared/user_links_loged_in'
+    end
+  end
+
   private
 
   def build_box key, msg
