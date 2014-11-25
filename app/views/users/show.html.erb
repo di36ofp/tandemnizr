@@ -46,9 +46,13 @@
       <strong>Description:</strong>
       <%= @user.description %>
     </p>
+    <a href="#" class="button split">Options<span data-dropdown="drop"></span></a><br>
+    <ul id="drop" class="f-dropdown" data-dropdown-content>
+      <li><%= link_to 'Edit', edit_user_path(@user) %></li>
+      <li><%= link_to 'List languages', user_languages_path(@user) %></li>
+      <li><%= link_to 'Back', users_path %></li>
+    </ul>
 
-    <%= link_to 'Edit', edit_user_path(@user) %> |
-    <%= link_to 'Back', users_path %>
 
   </div>
 </div>

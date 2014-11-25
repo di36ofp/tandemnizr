@@ -1,3 +1,45 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$primary-color: #D2B29A;
+$alert-color: #E66665;
+$success-color: #9ECEB4;
+
+.top-bar-section{
+  ul{
+    li{
+      background: none!important;
+      &:not(.has-form){
+        background: none!important;
+        a{
+          //background: !important;
+          &:not(.button){
+            &:hover{
+              background: transparent!important;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.top-bar,
+.top-bar-section ul li,
+.top-bar-section li:not(.has-form) a:not(.button),
+.top-bar-section li:not(.has-form) a:not(.button):hover{background: transparent!important;}
+.top-bar-section .dropdown li.parent-link{ font-size: rem-calc(12)}
+.top-bar-section .has-dropdown.active .dropdown li,
+.top-bar-section .has-dropdown.active .dropdown li a {background: transparent!important;}
+.top-bar-section .has-dropdown.active .dropdown li a{line-height: 1.4!important; font-weight: lighter; font-size:1.6rem!important;}
+.field_with_errors{
+  input{
+    background: scale-color($alert-color, $lightness: 83%)!important;
+  }
+}
+.footer{
+  margin-top: 5em;
+  padding-top: 5em;
+  color: #fff;
+  background: $success-color;
+}
