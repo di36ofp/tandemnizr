@@ -6,6 +6,15 @@ module ApplicationHelper
     end.join.html_safe
   end
 
+
+  def select_language
+    language_array = ([['French', 1], ['Spanish', 2], ['English', 3], ['German', 4], ['Russian', 5], ['Danish', 6], ['Chiness', 7], ['Portuguese', 8], ['Korean', 9], ['Mandarin', 10], ['Japanese', 11], ['Italian', 12], ['Turkish', 13], ['Vietnamese', 14], ['Hindi', 15]])
+
+    language_array.map do|language|
+      [ language[0], language[0]]
+    end
+  end
+
   private
 
   def build_box key, msg

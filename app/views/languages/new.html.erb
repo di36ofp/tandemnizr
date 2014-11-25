@@ -3,8 +3,9 @@
     <h2>Languages of: <%= @user.name %></h2>
 
     <%= form_for [@user, @languages] do | f | %>
+
       <%= f.label :language %>
-      <%= f.text_field :language %>
+      <%= f.select(:language, select_language) %>
 
       <%= f.submit 'Save', {'class' => 'button' } %>
     <% end %>
