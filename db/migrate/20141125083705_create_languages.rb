@@ -2,7 +2,7 @@ class CreateLanguages < ActiveRecord::Migration
   def change
     create_table :languages do |t|
       t.string :language
-      t.int :user_id
+      t.integer :user_id
 
       t.timestamps
     end
