@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
 
-  get 'sessions/new'
-
   #devise_for :users
   root to: 'site#home'
 
   resources :sessions, :only => [:new, :create, :destroy]
 
+  get 'sessions/new'
   get '/register' => 'users#new'
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
