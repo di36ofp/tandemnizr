@@ -1,2 +1,14 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<div class="row">
+  <div class="medium-6 columns medium-centered">
+    <%= form_for(:session, :url => sessions_path) do |f| %>
+      <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %> </div>
+      <div class="field">
+      <%= f.label :password %><br /> <%= f.password_field :password %>
+      </div>
+      <div class="actions">
+      <%= f.submit "Sign in",  {'class' => 'button' } %> </div>
+    <% end %>
+  </div>
+</div>

@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   #devise_for :users
   root to: 'site#home'
 
-  get '/signin' => 'users#new'
+  resources :sessions, :only => [:new, :create, :destroy]
+
+  get '/register' => 'users#new'
+  get '/login' => 'sessions#new'
+  post '/logout' => 'sessions#destroy'
 
   resources :users do
     resources :languages
