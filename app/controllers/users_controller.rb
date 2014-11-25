@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       flash[:success] = "User successfully created"
       redirect_to @user
     else
-      flash[:success] = "User can't be created"
+      flash[:notice] = "User can't be created"
       render 'new'
     end
   end
@@ -38,10 +38,10 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1.json
   def update
     if @user.update(user_params)
-      flash[:success] = "User successfully created"
+      flash[:success] = "User successfully updated"
       redirect_to @user
     else
-      flash[:success] = "User can't be updated"
+      flash[:notice] = "User can't be updated"
       render 'edit'
     end
   end
