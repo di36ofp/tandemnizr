@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
 
-  #attr_accessor :password, :password_confirmation
-
   before_save(on: :create) do
     :is_equal? if attribute_present?("password")
   end
 
   before_save :encrypt_password
+
+  has_many :languages
 
   validates :name, allow_blank:  true,
                    uniqueness:  true,
