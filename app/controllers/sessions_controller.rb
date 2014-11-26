@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       render :action => "new"
     else
       sign_in(user)
-      redirect_to users_url
+      redirect_back_or user
     end
   end
 
