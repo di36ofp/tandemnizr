@@ -2,8 +2,6 @@
   <div class="medium-12 columns">
     <h1>Listing users</h1>
 
-    <%= will_paginate %>
-
     <table>
       <thead>
         <tr>
@@ -39,6 +37,9 @@
         <% end %>
       </tbody>
     </table>
+
+    <%= will_paginate %>
+
     <%= link_to 'New User', new_user_path %>
 
   </div>

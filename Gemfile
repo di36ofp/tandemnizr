@@ -29,7 +29,7 @@ gem 'foundation-rails'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Paginator helper
-gem 'will_paginate', '3.0.pre2'
+gem 'will_paginate', '~> 3.0.6'
 
 # Auth
 #gem 'devise'
