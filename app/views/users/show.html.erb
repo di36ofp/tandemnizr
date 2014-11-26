@@ -46,6 +46,13 @@
       <strong>Description:</strong>
       <%= @user.description %>
     </p>
+
+    <ul>
+      <% @user.languages.each do | language | %>
+        <li><%= language.language  %></li>
+      <% end %>
+    </ul>
+
     <a href="#" class="button split">Options<span data-dropdown="drop"></span></a><br>
     <ul id="drop" class="f-dropdown" data-dropdown-content>
       <li><%= link_to 'Edit', edit_user_path(@user) %></li>

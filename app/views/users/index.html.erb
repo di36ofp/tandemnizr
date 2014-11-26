@@ -6,14 +6,7 @@
       <thead>
         <tr>
           <th>Name</th>
-          <th>Email</th>
-          <th>Nationality</th>
-          <th>City</th>
-          <th>Cp</th>
-          <th>Age</th>
-          <th>Career</th>
-          <th>Photo</th>
-          <th>Description</th>
+          <th>Languages</th>
           <th colspan="3"></th>
         </tr>
       </thead>
@@ -22,14 +15,13 @@
         <% @users.each do |user| %>
           <tr>
             <td><%= user.name %></td>
-            <td><%= user.email %></td>
-            <td><%= user.nationality %></td>
-            <td><%= user.city %></td>
-            <td><%= user.cp %></td>
-            <td><%= user.age %></td>
-            <td><%= user.career %></td>
-            <td><%= user.photo %></td>
-            <td><%= user.description %></td>
+            <td>
+              <ul>
+                <% user.languages.each do | language | %>
+                  <li><%= language.language  %></li>
+                <% end %>
+              </ul>
+            </td>
             <td><%= link_to 'Show', user %></td>
             <td><%= link_to 'Edit', edit_user_path(user) %></td>
             <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
