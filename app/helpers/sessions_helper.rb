@@ -18,6 +18,15 @@ module SessionsHelper
       @current_user ||= user_from_remember_token
   end
 
+  def current_user?(user)
+     user == current_user
+  end
+
+  def deny_access
+    flash[:notice] = "Please sign in to access this page."
+    redirect_to login_path
+  end
+
   private
 
   def user_from_remember_token

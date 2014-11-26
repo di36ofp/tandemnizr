@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     user = User.authenticate(params[:session][:email], params[:session][:password])
     if user.nil?
       flash.now[:notice] = "Invalid email/password combination."
-      render 'new'
+      render :action => "new"
     else
       sign_in(user)
       redirect_to users_url
@@ -24,7 +24,6 @@ class SessionsController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
-
 
   def session_params
     params.require(:session).permit(:email, :password)
