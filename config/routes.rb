@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'tandems/new'
+
   #devise_for :users
   root to: 'site#home'
 
