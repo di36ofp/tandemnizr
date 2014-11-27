@@ -34,10 +34,9 @@ class User < ActiveRecord::Base
   #validates :description
 
   def self.find_by_languages(current_user)
-    langs = Language.where(language: current_user.languages.first.language)
-    langs.map do | user |
-      User.find(user.user_id)
-    end
+    # Usuarios que quieran hacer un tandem y compartan conmigo
+    # al menos un idioma en comun
+    User.where(id: Language.where(language: current_user.languages.pluck(:language)).pluck(:user_id))
   end
 
   def self.authenticate(email, submitted_password)
