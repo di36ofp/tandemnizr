@@ -49,7 +49,7 @@
 
     <ul>
       <% @user.languages.each do | language | %>
-        <li><%= language.language  %></li>
+        <li><%= iso_language(language.language)  %></li>
       <% end %>
     </ul>
 

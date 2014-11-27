@@ -12,25 +12,25 @@
                          password: "Diego12*",
                          password_confirmation: "Diego12*")
   if email.size % 3 == 0
-    lang = Language.create(language: 'french',
+    lang = Language.create(language: 'fr',
                             user_id: one_user.id )
-    lang = Language.create(language: 'spanish',
+    lang = Language.create(language: 'es',
                             user_id: one_user.id )
-    lang = Language.create(language: 'english',
+    lang = Language.create(language: 'en',
                             user_id: one_user.id )
   elsif email.size % 2 == 0
-    lang = Language.create(language: 'french',
+    lang = Language.create(language: 'fr',
                             user_id: one_user.id )
-    lang = Language.create(language: 'spanish',
+    lang = Language.create(language: 'es',
                             user_id: one_user.id )
-    lang = Language.create(language: 'english',
+    lang = Language.create(language: 'en',
                             user_id: one_user.id )
-    lang = Language.create(language: 'german',
+    lang = Language.create(language: 'de',
                             user_id: one_user.id )
   elsif email.size % 5 == 0
-    lang = Language.create(language: 'french',
+    lang = Language.create(language: 'fr',
                             user_id: one_user.id )
-    lang = Language.create(language: 'spanish',
+    lang = Language.create(language: 'es',
                             user_id: one_user.id )
   end
 
