@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   #validates :description
 
   def self.find_by_languages(current_user)
-    # Usuarios que quieran hacer un tandem y compartan conmigo
+    # Usuarios disponibles para tandem y compartan conmigo
     # al menos un idioma en comun
     User.where(id: Language.where(language: current_user.languages.pluck(:language)).pluck(:user_id))
   end
