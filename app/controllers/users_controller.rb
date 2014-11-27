@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   before_filter :authenticate, :only => [:index,:edit, :update]
 
   def index
-    @users = User.paginate(:page => params[:page])
+    #@users = User.find_by_languages.paginate(:page => params[:page])
+    @users = User.find_by_languages(current_user)
   end
 
   def show

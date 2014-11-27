@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :languages
 
+  self.per_page = 10
+
   validates :name, allow_blank:  true,
                    uniqueness:  true,
                    length:      { maximum: 30 },
@@ -30,6 +32,13 @@ class User < ActiveRecord::Base
   #validates :career
   #validates :photo
   #validates :description
+
+  def self.find_by_languages(current_user)
+    langs = Language.where(language: current_user.languages.first.language)
+    langs.map do | user |
+      User.find(user.user_id)
+    end
+  end
 
   def self.authenticate(email, submitted_password)
     user = find_by_email(email)
