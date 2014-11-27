@@ -31,6 +31,9 @@ gem 'foundation-rails'
 # Paginator helper
 gem 'will_paginate', '~> 3.0.6'
 
+# Langugae ISO list
+gem 'language_list'
+
 # Auth
 #gem 'devise'
 
