@@ -16,13 +16,23 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).foundation({
-  orbit: {
-    animation: 'fade',
-    timer_speed: 4000,
-    pause_on_hover: true,
-    animation_speed: 500,
-    navigation_arrows: true,
-    bullets: false
-  }
+
+$(function(){
+ $(document).foundation({
+    ///se toca a partir de aqui
+    orbit: {
+      animation: 'fade',
+      timer_speed: 4000,
+      pause_on_hover: true,
+      animation_speed: 500,
+      navigation_arrows: false,
+      bullets: true,
+    }
+    //// se toca hasta aqui
+  });
+ (function(){
+  smooth_scrolling();
+ }());
+
+
 });
