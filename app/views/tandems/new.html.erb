@@ -1,2 +1,13 @@
-<h1>Tandems#new</h1>
-<p>Find me in app/views/tandems/new.html.erb</p>
+<div class="row">
+  <div class="medium12 columns">
+    <h2>Tandem for: <%= current_user.name %></h2>
+
+    <%= form_for [@user, @tandems] do | f | %>
+
+
+
+      <%= f.submit 'Save', {'class' => 'button' } %>
+    <% end %>
+
+  </div>
+</div>

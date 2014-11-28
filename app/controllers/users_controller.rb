@@ -49,20 +49,20 @@ class UsersController < ApplicationController
 
   private
 
-    def set_user
-      @user = User.find(params[:id])
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
 
-    def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation, :nationality, :city, :cp, :age, :career, :photo, :description)
-    end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :nationality, :city, :cp, :age, :career, :photo, :description)
+  end
 
-    def authenticate
-      deny_access unless signed_in?
-    end
+  def authenticate
+    deny_access unless signed_in?
+  end
 
-    def correct_user
-      redirect_to(root_path) unless current_user?(@user)
-    end
+  def correct_user
+    redirect_to(root_path) unless current_user?(@user)
+  end
 end

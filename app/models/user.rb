@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
 
   has_many :languages
 
+  has_many :tandems
+
   self.per_page = 10
 
   validates :name, allow_blank:  true,

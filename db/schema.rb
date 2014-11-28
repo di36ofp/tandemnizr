@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141127163348) do
+ActiveRecord::Schema.define(version: 20141127174917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20141127163348) do
   end
 
   create_table "tandems", force: true do |t|
-    t.integer  "current_user_id"
+    t.integer  "user_id"
     t.integer  "mate_id"
     t.string   "language"
     t.boolean  "confirmation"

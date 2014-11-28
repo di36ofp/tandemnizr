@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title><%= content_for?(:title) ? yield(:title) : "TandemNizr" %></title>
+<title><%= content_for?(:title) ? yield(:title) : "TandemNizr" %></title>
 
-    <%= stylesheet_link_tag    "application" %>
-    <%= javascript_include_tag "vendor/modernizr" %>
-    <%= csrf_meta_tags %>
-  </head>
+<%= stylesheet_link_tag    "application" %>
+<%= javascript_include_tag "vendor/modernizr" %>
+<%= csrf_meta_tags %>
+</head>
+<body>
+  <section class="off-canvas-wrap" data-offcanvas>
+    <div class="inner-wrap">
+      <aside class="right-off-canvas-menu">
+      <ul>
+        <li><a href="#">Item 1</a></li>
 
-  <body>
-    <%= render 'shared/navigation' %>
-    <main class="full-row">
-      <header class="row">
-        <div class="clearfix"></div>
-      </header>
+      </ul>
+      </aside>
+      <%= render 'shared/navigation' %>
+      <main class="full-row">
+        <header class="row">
+          <div class="clearfix"></div>
+        </header>
 
-      <%= flash_message %>
-      <%= yield %>
+        <%= flash_message %>
+        <%= yield %>
 
-    </main>
-    <%= render 'shared/footer' %>
-    <%= javascript_include_tag "application" %>
-  </body>
+      </main>
+      <%= render 'shared/footer' %>
+    <a class="exit-off-canvas"></a>
+
+    </div>
+  </section>
+  <%= javascript_include_tag "application" %>
+</body>
 </html>

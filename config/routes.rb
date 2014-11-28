@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'tandems/new'
+  #get 'tandems/new'
 
   #devise_for :users
   root to: 'site#home'
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :languages
+    resources :tandems
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
