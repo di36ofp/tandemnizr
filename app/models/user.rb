@@ -8,7 +8,9 @@ class User < ActiveRecord::Base
 
   has_many :languages
 
-  has_many :tandems
+  has_many :tandems, througs: :participations
+
+  has_many :participations
 
   self.per_page = 10
 
