@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :languages
 
-  has_many :tandems, througs: :participations
+  has_many :tandems, through: :participations
 
   has_many :participations
 
