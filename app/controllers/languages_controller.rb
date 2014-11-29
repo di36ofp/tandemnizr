@@ -1,12 +1,9 @@
 class LanguagesController < ApplicationController
 
-  before_action :set_user
-
-  before_filter :authenticate
-
   def index
     @languages = @user.languages
   end
+
   def new
     @languages = @user.languages.new
   end
@@ -25,15 +22,7 @@ class LanguagesController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:user_id])
-  end
-
   def language_params
     params.require(:language).permit(:language, :user_id)
-  end
-
-  def authenticate
-    deny_access unless signed_in?
   end
 end
