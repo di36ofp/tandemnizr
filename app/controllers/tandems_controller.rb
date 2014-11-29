@@ -7,12 +7,23 @@ class TandemsController < ApplicationController
   end
 
   def create
-    tandem_creator = TandemCreator.new
-    tandem_creator.add current_user
-    tandem_creator.set_language current_user, params[:language]
-    tandem_creator.invite User.find(params[:user_id])
-    @tandem = tandem_creator.tandem
+    tandem_creator = TandemCreator.new(params[:language], current_user, invited_user)
+    @tandem = tandem_creator.create
   end
 
   #uodate and pass thing s  to tandem
+
+  private
+
+  def invited_user
+    @invited_user ||= User.find(params[:user_id])
+  end
+
+  def set_user
+    @user = User.find(params[:user_id])
+  end
+
+  def authenticate
+    deny_access unless signed_in?
+  end
 end
