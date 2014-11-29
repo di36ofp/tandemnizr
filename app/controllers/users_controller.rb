@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate, :only => [:index,:edit, :update]
+  skip_before_filter :authenticate, :only => [:show, :destroy]
 
   def index
     #@users = User.find_by_languages.paginate(:page => params[:page])
@@ -56,10 +56,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation, :nationality, :city, :cp, :age, :career, :photo, :description)
-  end
-
-  def authenticate
-    deny_access unless signed_in?
   end
 
   def correct_user

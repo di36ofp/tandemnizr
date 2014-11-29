@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
 
+  skip_before_filter :authenticate
+
   def new
   end
 
@@ -20,10 +22,6 @@ class SessionsController < ApplicationController
   end
 
   private
-
-  def set_user
-    @user = User.find(params[:id])
-  end
 
   def session_params
     params.require(:session).permit(:email, :password)
