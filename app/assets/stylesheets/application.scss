@@ -25,9 +25,6 @@
   .bordered {
     border-top: 1px solid #f2f2f2;
   }
-  .orbit-container{
-    zoom:1;
-  }
   .orbit-slides-container img{
     max-width: inherit;
     margin: 0 auto;
@@ -38,7 +35,13 @@
     margin-right: auto;
     max-width: initial;
   }
-
+  main.full-row{
+    margin-top: $topbar-height;
+    .orbit-container{
+      margin-top: -$topbar-height;
+      zoom:1;
+    }
+  }
   .hexagon {
     position: relative;
     width: 300px;
