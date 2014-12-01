@@ -1,5 +1,5 @@
 <section class="contain-to-grid  sticky fixed">
-  <nav class="top-bar" data-topbar role="navigation" aria-hidden="true">
+  <nav class="top-bar" data-topbar role="navigation" data-options="is_hover:false">
     <ul class="title-area">
       <li class="name">
         <a href="/"><%= image_tag("https://dl.dropboxusercontent.com/u/79814994/cdn/tandemnizr_logo.png", alt: "Find your perfect tandem") %></a>
@@ -10,7 +10,6 @@
       <ul class="right">
         <li><a href="#">Blog</a></li>
         <li><a href="<%= users_path() %>">Community</a></li>
-        <li><a class="right-off-canvas-toggle" href="#" >Menu</a></li>
         <%= user_nav_link %>
       </ul>
     </section>

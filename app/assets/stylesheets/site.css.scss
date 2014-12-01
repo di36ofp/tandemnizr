@@ -14,6 +14,10 @@
 .top-bar-section .has-dropdown.active .dropdown li,
 .top-bar-section .has-dropdown.active .dropdown li a {background: transparent!important;}
 .top-bar-section .has-dropdown.active .dropdown li a{line-height: 1.4!important; font-weight: lighter; font-size:1.6rem!important;}
+.top-bar-section li:not(.has-form) a:not(.button){ font-weight: lighter!important;}
+.top-bar .dropdown li a{
+  line-height: 1.3!important;
+}
 .field_with_errors{
   input{
     background: scale-color($alert-color, $lightness: 83%)!important;

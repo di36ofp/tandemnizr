@@ -1,12 +1,11 @@
 <div class="row">
   <div class="medium12 columns">
-    <h2>Tandem for: <%= current_user.name %></h2>
-
-    <%= form_for [@user, @tandems] do | f | %>
-      <%= f.text_field :place  %>
-      <%= f.text_field :schedule  %>
-      <%= f.submit 'Save', {'class' => 'button' } %>
+    <h2>Available languages from <%= @host_participation.name %></h2>
+  <ul>
+    <% @host_participation.languages.each do | language | %>
+      <li><%= link_to language.language, tandem_path(id: @participation.id, language: language.language), method: :patch, "class" => "button small success tiny" %></li>
     <% end %>
+  </ul>
 
   </div>
 </div>

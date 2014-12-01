@@ -1,6 +1,6 @@
 class TandemsController < ApplicationController
 
-  before_action :set_tandem, only: [:show, :edit, :update, :destroy]
+ before_action :set_tandem, only: [:show, :destroy]
 
   def new
     @tandems = @user.tandems.new
@@ -12,7 +12,9 @@ class TandemsController < ApplicationController
   end
 
   def edit
-    @participation = Participation.find_by(token: params[:token])
+    @participation = current_user.participations.find_by(token: params[:token])
+    @host_participation = User.where(id: Participation.where(tandem_id: @participation.tandem_id, confirmed: true).pluck(:user_id)).first
+    render 'new'
   end
 
   def update

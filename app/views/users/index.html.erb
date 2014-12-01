@@ -2,33 +2,16 @@
   <div class="medium-12 columns">
     <h1>Listing users</h1>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Languages</th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @users.each do |user| %>
-          <tr>
-            <td><%= user.name %></td>
-            <td>
-              <ul>
-                <% user.languages.each do | language | %>
-                  <li><%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "button small success tiny" %></li>
-                <% end %>
-              </ul>
-            </td>
-            <td><%= link_to 'Show', user %></td>
-            <td><%= link_to 'Edit', edit_user_path(user) %></td>
-            <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+    <ul class="medium-block-grid-4">
+      <% @users.each do |user| %>
+      <li>
+        <h6><%= user.name %></h6>
+        <% user.languages.each do | language | %>
+        <%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "label secondary" %>
         <% end %>
-      </tbody>
-    </table>
+      </li>
+      <% end %>
+    </ul>
 
 
 

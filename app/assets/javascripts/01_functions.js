@@ -1,24 +1,3 @@
-function initOrbit () {
-
-  $(document).foundation({
-    orbit: {
-      animation: 'fade',
-      timer_speed: 3500,
-      pause_on_hover: false,
-      next_on_click: true,
-      container_class: 'orbit-wrapper',
-      animation_speed: 500,
-      navigation_arrows: false,
-      bullets: true,
-      slide_number: false,
-      timer: false
-    },
-    topbar: {
-      scrolltop: true,
-    }
-  });
-};
-
 function initScroll ( scrollPosition ) {
   var pos = scrollPosition.currentTarget.pageYOffset;
   var limitTopBar = ( $( '.top-bar' ).length > 0 ) ?  $( '.top-bar' ).height() : 0;
@@ -44,10 +23,6 @@ function initHexagon() {
  }
 
 $( document ).ready( function () {
-
-  var orbit = document.getElementsByClassName( 'orbit-container' );
-  if ( orbit.length > 0 ) $( '.orbit-container' ).load( initOrbit() );
-
   var hexagon = document.getElementsByClassName( 'hexagon' );
   if ( hexagon.length > 0 ) $( '.hexagon' ).load( initHexagon() );
 
