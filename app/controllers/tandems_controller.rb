@@ -11,6 +11,14 @@ class TandemsController < ApplicationController
     @tandem = tandem_creator.create
   end
 
+  def edit
+    @participation = Participation.find_by(token: params[:token])
+  end
+
+  def update
+      Participation.update(language: params[:language], confirmed: true)
+  end
+
   private
 
   def invited_user

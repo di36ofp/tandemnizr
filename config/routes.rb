@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/register' => 'users#new'
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
+  get '/confirm/:token' => 'tandems#edit'
 
   resources :users do
     resources :languages

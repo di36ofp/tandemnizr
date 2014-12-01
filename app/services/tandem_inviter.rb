@@ -44,7 +44,7 @@ class TandemInviter
   private
 
   def send_invitation_mail(participation)
-    # Pending implementation
+    UserMailer.send_invitation(participation).deliver
   end
 
   def generate_token
