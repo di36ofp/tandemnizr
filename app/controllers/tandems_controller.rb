@@ -11,8 +11,6 @@ class TandemsController < ApplicationController
     @tandem = tandem_creator.create
   end
 
-  #uodate and pass thing s  to tandem
-
   private
 
   def invited_user

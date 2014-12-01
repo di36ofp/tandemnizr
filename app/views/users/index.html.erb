@@ -18,7 +18,7 @@
             <td>
               <ul>
                 <% user.languages.each do | language | %>
-                  <li><%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "button" %></li>
+                  <li><%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "button small success tiny" %></li>
                 <% end %>
               </ul>
             </td>

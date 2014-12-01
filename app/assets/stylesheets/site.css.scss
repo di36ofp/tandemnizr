@@ -1,28 +1,10 @@
 // Place all the styles related to the site controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "foundation_and_overrides";
 
-$primary-color: #D2B29A;
-$alert-color: #E66665;
-$success-color: #9ECEB4;
-
-.top-bar-section{
-  ul{
-    li{
-      background: none!important;
-      &:not(.has-form){
-        background: none!important;
-        a{
-          //background: !important;
-          &:not(.button){
-            &:hover{
-              background: transparent!important;
-            }
-          }
-        }
-      }
-    }
-  }
+.top-bar .title-area img{
+  vertical-align: top;
 }
 .top-bar,
 .top-bar-section ul li,
@@ -36,6 +18,28 @@ $success-color: #9ECEB4;
   input{
     background: scale-color($alert-color, $lightness: 83%)!important;
   }
+}
+.f-topbar-fixed {
+  padding-top: 0px !important;
+}
+.contain-to-grid{
+  background: none;
+  -webkit-transition: all 1.5s ease-in-out;
+    -moz-transition: all 1.5s ease-in-out;
+    -o-transition: all 1.5s ease-in-out;
+    transition: all 1.5s ease-in-out;
+}
+.smoked-top-bar{
+  background: $shiny-edge-color!important;
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+}
+.white-top-bar{
+  background: $white!important;
+  -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
 }
 .footer{
   margin-top: 5em;
