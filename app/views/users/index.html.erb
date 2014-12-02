@@ -1,10 +1,13 @@
 <div class="row">
   <div class="medium-12 columns">
-    <h1>Listing users</h1>
+    <blockquote><h2>Each time your closer to your best tandem mate!</h2></blockquote>
 
-    <ul class="medium-block-grid-4">
+    <ul class="medium-block-grid-4 small-block-grid-2">
       <% @users.each do |user| %>
-      <li>
+      <li class="">
+        <a class="th radius" href="#">
+          <img src="http://placehold.it/220x240/F9F9F9&text=<%= user.name %>">
+        </a>
         <h6><%= user.name %></h6>
         <% user.languages.each do | language | %>
         <%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "label secondary" %>
@@ -12,11 +15,6 @@
       </li>
       <% end %>
     </ul>
-
-
-
-    <%= link_to 'New User', new_user_path %>
-
   </div>
 </div>
 

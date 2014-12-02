@@ -1,7 +1,13 @@
 <div class="row">
-  <div class="medium-12 columns">
-    <p id="notice"><%= notice %></p>
-
+  <div class="medium-4 columns hide-for-small-only">
+    <ul class="side-nav">
+      <li><label>General Information</label></li>
+      <li><%= link_to 'Edit profile', edit_user_path(@user) %></li>
+      <li><%= link_to 'List languages', user_languages_path(@user) %></li>
+    </ul>
+  </div>
+  <div class="medium-8 columns">
+    <h4>Profile details</h4>
     <p>
       <strong>Name:</strong>
       <%= @user.name %>
@@ -46,20 +52,11 @@
       <strong>Description:</strong>
       <%= @user.description %>
     </p>
-
-    <ul>
+    <strong>Languages for tandems:</strong>
+    <ul class="inline-list">
       <% @user.languages.each do | language | %>
-        <li><%= iso_language(language.language)  %></li>
+        <li><span class="alert label"><%= iso_language(language.language)  %></span></li>
       <% end %>
     </ul>
-
-    <a href="#" class="button split">Options<span data-dropdown="drop"></span></a><br>
-    <ul id="drop" class="f-dropdown" data-dropdown-content>
-      <li><%= link_to 'Edit', edit_user_path(@user) %></li>
-      <li><%= link_to 'List languages', user_languages_path(@user) %></li>
-      <li><%= link_to 'Back', users_path %></li>
-    </ul>
-
-
   </div>
 </div>

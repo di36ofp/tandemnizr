@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  skip_before_filter :authenticate, :only => [:show, :destroy]
+  skip_before_filter :authenticate, :only => [:new, :create, :show, :destroy]
 
   def index
     #@users = User.find_by_languages.paginate(:page => params[:page])

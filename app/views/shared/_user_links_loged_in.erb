@@ -1,7 +1,7 @@
-<li class="has-dropdown">
+<li><a class="right-off-canvas-toggle show-for-small-only" href="#" >Close Menu</a></li>
+<li class="has-dropdown show-for-medium-up">
   <a href="#">Hello:￼<%= current_user.name %></a>
   <ul class="dropdown">
-    <li><a class="right-off-canvas-toggle" href="#" >Menu</a></li>
     <li><a href="<%= edit_user_path(current_user.id) %>">Settings</a></li>
     <li><%= link_to "Log out", session_path(current_user.id) , method: :delete %></li>
   </ul>

@@ -1,7 +1,10 @@
 <div class="row">
-  <div class="medium-12 columns">
-    <h1>New user</h1>
-
+  <div class="medium-12 columns medium-centered">
+    <h1>New on TandemNizr?</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
     <%= form_for(@user) do |f| %>
       <% if @user.errors.any? %>
         <div id="error_explanation">
@@ -24,15 +27,15 @@
         <%= f.password_field :password %>
       </div>
       <div class="field">
-        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.label :password_confirmation, "Password confirmation" %>
         <%= f.password_field :password_confirmation %>
       </div>
       <div class="actions">
-        <%= f.submit %>
+        <%= f.submit "Create my profile",  {'class' => 'button' } %>
       </div>
     <% end %>
-
-    <%= link_to 'Back', users_path %>
-
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <blockquote>Connect with your people like you — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</blockquote>
   </div>
 </div>

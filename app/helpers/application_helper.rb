@@ -6,6 +6,14 @@ module ApplicationHelper
     end.join.html_safe
   end
 
+  def print_flash
+    flash_message
+    render 'shared/flash' if !flash.empty?
+  end
+
+  def air
+    air = controller.action_name == 'home' ? '' : 'air'
+  end
 
   def select_language
     common_languages = []
@@ -19,6 +27,7 @@ module ApplicationHelper
     lang = LanguageList::LanguageInfo.find(language)
     lang.name.inspect.gsub! /"/, ''
   end
+
   def user_nav_link
     if current_user.nil?
       render 'shared/user_links_not_loged'
@@ -27,6 +36,9 @@ module ApplicationHelper
     end
   end
 
+  def user_information
+    render 'shared/user_information' unless current_user.nil?
+  end
   private
 
   def build_box key, msg

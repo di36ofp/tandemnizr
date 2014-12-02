@@ -1,5 +1,10 @@
 <div class="row">
-  <div class="medium-6 columns medium-centered">
+  <div class="medium-12 columns medium-centered">
+    <h1>Welcome to TandemNizr</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
     <%= form_for :session, :url => sessions_path do |f| %>
       <div class="field">
         <%= f.label :email %>
@@ -10,7 +15,18 @@
         <%= f.password_field :password %>
       </div>
       <div class="actions">
-      <%= f.submit "Sign in",  {'class' => 'button' } %> </div>
+      <%= f.submit "Log in",  {'class' => 'button' } %> </div>
     <% end %>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <blockquote>
+      <p>Connect with your people like you — and other fascinating people. Get in-the-moment updates on the things that interest you. And watch events unfold, in real time, from every angle.</p>
+      <div class="row">
+        <div class="medium-6 columns text-center">
+          <h6>New on TandemNizr?</h6>
+          <%= link_to("Sing up", register_path(), {'class' => 'button expand tiny' }) %>
+        </div>
+      </div>
+    </blockquote>
   </div>
 </div>

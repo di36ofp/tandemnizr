@@ -7,6 +7,7 @@
 <title><%= content_for?(:title) ? yield(:title) : "TandemNizr" %></title>
 
 <%= stylesheet_link_tag "application" %>
+<%= javascript_include_tag "vendor/modernizr" %>
 <%= csrf_meta_tags %>
 </head>
 <body class="hide-extras">
@@ -16,15 +17,12 @@
         <%= render 'shared/right_off_canvas' %>
       </aside>
       <%= render 'shared/navigation' %>
-      <main class="full-row">
-
-        <%= flash_message %>
+      <main class="full-row <%= air %>">
+        <%= print_flash %>
         <%= yield %>
-
       </main>
       <%= render 'shared/footer' %>
       <a class="exit-off-canvas"></a>
-
     </div>
   </section>
   <%= javascript_include_tag "application" %>

@@ -10,12 +10,75 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
  *= require foundation_and_overrides
+ *= require_self
+ *= require_tree .
  */
   @import "foundation_and_overrides";
 
+  .full-row {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: initial;
+  }
+  main.full-row{
+    .orbit-container{
+      zoom:1;
+    }
+  }
+  .top-bar{
+    padding-top: 1em;
+  }
+  .top-bar .title-area img{
+    vertical-align: top;
+  }
+  .top-bar,
+  .top-bar-section ul li,
+  .top-bar-section li:not(.has-form) a:not(.button),
+  .top-bar-section li:not(.has-form) a:not(.button):hover{background: transparent!important;}
+  .top-bar-section .dropdown li:not(.has-form) a:not(.button){background: $white!important;border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc; }
+  .top-bar-section .dropdown li:not(.has-form):last-child a:not(.button){border-bottom: 1px solid #ccc;}
+  .top-bar-section .dropdown li.parent-link{ font-size: rem-calc(12)}
+  .top-bar-section .has-dropdown.active .dropdown li,
+  .top-bar-section .has-dropdown.active .dropdown li a {background: transparent!important;}
+  .top-bar-section .has-dropdown.active .dropdown li a{line-height: 1.4!important; font-weight: lighter; font-size:1.6rem!important;}
+  .top-bar-section li:not(.has-form) a:not(.button){ font-weight: lighter!important;}
+  .top-bar .dropdown li a{
+    line-height: 1.3!important;
+  }
+  .field_with_errors{
+    input{
+      background: scale-color($alert-color, $lightness: 83%)!important;
+    }
+  }
+  .f-topbar-fixed {
+    padding-top: 0px !important;
+  }
+  .contain-to-grid{
+    background: none;
+    -webkit-transition: all 1.5s ease-in-out;
+      -moz-transition: all 1.5s ease-in-out;
+      -o-transition: all 1.5s ease-in-out;
+      transition: all 1.5s ease-in-out;
+  }
+  .smoked-top-bar{
+    background: $shiny-edge-color!important;
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+  .white-top-bar{
+    background: $white!important;
+    -moz-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    -webkit-box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+
+  .air{
+    margin-top: $topbar-height * 2;
+  }
   .right-off-canvas-menu{
     background: $vapor;
   }
@@ -25,47 +88,34 @@
   .bordered {
     border-top: 1px solid #f2f2f2;
   }
-  .orbit-slides-container img{
-    max-width: inherit;
-    margin: 0 auto;
-  }
-  .full-row {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: initial;
-  }
-  main.full-row{
-    margin-top: $topbar-height;
-    .orbit-container{
-      margin-top: -$topbar-height;
-      zoom:1;
+  .orbit-slides-container {
+    img{
+      max-width: inherit;
+      margin: 0 auto;
     }
   }
-  .hexagon {
-    position: relative;
-    width: 300px;
-    height: 173.21px;
-    background-color: $success-color;
-    margin: 86.60px auto;
+  .button{
+    color: $white!important;
   }
 
-  .hexagon:before,
-  .hexagon:after {
-    content: "";
-    position: absolute;
-    width: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
+  .footer{
+    margin-top: 5em;
+    padding-top: 5em;
+    color: #fff;
+    background: $primary-color;
+    &> .columns{
+      background: scale-color($primary-color, $lightness: -20%);
+      border-right: 2px dotted rgba(255, 255, 255, 0.2);
+    }
+    h1, h2, h3, h4, h5, h6{
+      color: $white;
+    }
   }
-
-  .hexagon:before {
-    bottom: 100%;
-    border-bottom: 86.60px solid $success-color;
-  }
-
-  .hexagon:after {
-    top: 100%;
-    width: 0;
-    border-top: 86.60px solid $success-color;
+  @media #{$small-only} {
+    .footer{
+      &> .columns{
+        border-top: 2px dotted rgba(255, 255, 255, 0.2);
+        border-right: none;
+      }
+    }
   }
