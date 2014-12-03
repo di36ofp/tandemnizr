@@ -12,7 +12,7 @@ class TandemsController < ApplicationController
 
     if @tandem
       @tandem.update(tandem_params)
-      flash.now[:success] = "Invitation deliveried correctrly!"
+      flash.now[:success] = "Invitation deliveried correctly!"
     else
       flash[:notice] = "Ups! something was wrong..."
       redirect_to :back
@@ -22,7 +22,6 @@ class TandemsController < ApplicationController
   def edit
     @participation =  current_user.participations.where(user: current_user, token: params[:token]).first
     @host_participation = User.where(id: Participation.where(tandem_id: @participation.tandem_id, confirmed: true).pluck(:user_id)).first
-    render 'new'
   end
 
  def update

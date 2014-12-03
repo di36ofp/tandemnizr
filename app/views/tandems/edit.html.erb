@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="medium-12 columns medium-centered">
+    <h3>Time to Tandeming!</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="medium-6 columns medium-push-6">
+  <a class="th radius" href="#">
+    <img src="<%= @host_participation.photo %>">
+  </a>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <h4><small>Available languages from</small> <%= @host_participation.name %></h4>
+    <p>Please, select the language for tandeming!</p>
+    <ul class="inline-list">
+      <% @host_participation.languages.each do | language | %>
+        <li><%= link_to iso_language(language.language), tandem_path(id: @participation.tandem_id, token: @participation.token, language: language.language), method: :put, "class" => "button small" %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

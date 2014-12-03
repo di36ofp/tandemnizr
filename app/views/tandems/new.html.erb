@@ -4,22 +4,6 @@
   </div>
 </div>
 <div class="row">
-  <% if @host_participation %>
-  <div class="medium-6 columns medium-push-6">
-  <a class="th radius" href="#">
-    <img src="<%= @host_participation.photo %>">
-  </a>
-  </div>
-  <div class="medium-6 columns medium-pull-6">
-    <h4><small>Available languages from</small> <%= @host_participation.name %></h4>
-    <p>Please, select the language for tandeming!</p>
-    <ul class="inline-list">
-      <% @host_participation.languages.each do | language | %>
-        <li><%= link_to iso_language(language.language), tandem_path(id: @participation.tandem_id, token: @participation.token, language: language.language), method: :put, "class" => "button small" %></li>
-      <% end %>
-    </ul>
-  </div>
-  <% else %>
   <div class="medium-6 columns medium-push-6">
   <a class="th radius" href="#">
 
@@ -38,8 +22,10 @@
         <%= f.label :schedule %>
         <%= f.date_field :schedule %>
 
-        <%= f.submit 'Save', {'class' => 'button' } %>
+        <ul class="inline-list right">
+          <li><%= link_to("Cancel", users_path) %></li>
+          <li><%= f.submit 'Send invitation', {'class' => 'button right' } %></li>
+        </ul>
       <% end %>
   </div>
-  <% end %>
 </div>
