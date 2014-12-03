@@ -4,6 +4,7 @@
   </div>
 </div>
 <div class="row">
+  <% if @host_participation %>
   <div class="medium-6 columns medium-push-6">
   <a class="th radius" href="#">
     <img src="<%= @host_participation.photo %>">
@@ -18,4 +19,27 @@
       <% end %>
     </ul>
   </div>
+  <% else %>
+  <div class="medium-6 columns medium-push-6">
+  <a class="th radius" href="#">
+
+  </a>
+  </div>
+  <div class="medium-6 columns medium-pull-6">
+    <h4>Choose where to TandemNize!</h4>
+    <p>Please, select the language for tandeming!</p>
+    <%= form_for [@tandem] do | f | %>
+        <%= f.hidden_field 'user_id',value: params[:user_id] %>
+        <%= f.hidden_field 'language',value: params[:language] %>
+
+        <%= f.label :place %>
+        <%= f.text_field :place %>
+
+        <%= f.label :schedule %>
+        <%= f.date_field :schedule %>
+
+        <%= f.submit 'Save', {'class' => 'button' } %>
+      <% end %>
+  </div>
+  <% end %>
 </div>

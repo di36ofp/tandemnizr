@@ -1,6 +1,0 @@
-<li><label>General</label></li>
-<li><%= link_to 'User information', current_user, {'class' => 'active' } %> </li>
-<li><label>Pending invitations</label></li>
-<% current_user.participations.each do | participation | %>
-<li><a href="#"><span class="label"><%= participation.language %></span></a></li>
-<% end %>

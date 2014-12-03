@@ -10,7 +10,7 @@
         </a>
         <h6><%= user.name %></h6>
         <% user.languages.each do | language | %>
-        <%= link_to language.language, tandems_path(user_id: user.id, language: language.language), method: :post, "class" => "label secondary" %>
+        <%= link_to language.language, new_tandem_path(user_id: user.id, language: language.language), method: :get, "class" => "label secondary" %>
         <% end %>
       </li>
       <% end %>

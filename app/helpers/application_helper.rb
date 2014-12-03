@@ -15,6 +15,11 @@ module ApplicationHelper
     air = controller.action_name == 'home' ? '' : 'air'
   end
 
+  def map
+    if controller.action_name == 'create' && controller.controller_name == 'tandems'
+    '<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>'.html_safe
+    end
+  end
   def select_language
     common_languages = []
     LanguageList::COMMON_LANGUAGES.each do | language |
