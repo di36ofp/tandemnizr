@@ -5,8 +5,8 @@ class UsersController < ApplicationController
   skip_before_filter :authenticate, :only => [:new, :create, :show, :destroy]
 
   def index
-    #@users = User.find_by_languages.paginate(:page => params[:page])
-    @users = User.find_by_languages(current_user)
+    @users = User.find_by_languages(current_user).paginate(:page => params[:page])
+
   end
 
   def show
@@ -33,6 +33,7 @@ class UsersController < ApplicationController
   def update
     if @user.update(user_params)
       flash[:success] = "User successfully updated"
+      sign_in @user
       redirect_to @user
     else
       flash[:notice] = "User can't be updated"

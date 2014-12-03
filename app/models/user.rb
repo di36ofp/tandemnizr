@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   before_save :encrypt_password
 
+  before_update :encrypt_password
+
   has_many :languages
 
   has_many :tandems, through: :participations
@@ -72,6 +74,8 @@ class User < ActiveRecord::Base
     self.salt = make_salt
     if new_record?
       self.password = encrypt(password)
+    else
+      self.password = encrypt(self.password)
     end
   end
 

@@ -6,7 +6,7 @@
       <% @users.each do |user| %>
       <li class="">
         <a class="th radius" href="#">
-          <img src="http://placehold.it/220x240/F9F9F9&text=<%= user.name %>">
+          <img src="<%= user.photo %>">
         </a>
         <h6><%= user.name %></h6>
         <% user.languages.each do | language | %>
@@ -15,6 +15,7 @@
       </li>
       <% end %>
     </ul>
+    <%= will_paginate @users %>
   </div>
 </div>
 

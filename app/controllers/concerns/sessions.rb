@@ -9,7 +9,7 @@ module Concerns::Sessions
       !current_user.nil?
   end
 
-  def sign_in(user)
+  def sign_in( user )
     cookies.permanent.signed[:remember_token] = [user.id, user.salt]
     @current_user = user
   end
@@ -23,7 +23,7 @@ module Concerns::Sessions
     @current_user ||= user_from_remember_token
   end
 
-  def current_user?(user)
+  def current_user?( user )
      user == current_user
   end
 
@@ -33,7 +33,7 @@ module Concerns::Sessions
     redirect_to login_path
   end
 
-  def redirect_back_or(default)
+  def redirect_back_or( default )
      redirect_to(session[:return_to] || default)
      clear_return_to
   end
