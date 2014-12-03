@@ -36,7 +36,7 @@ class TandemInviter
     participation.update_attributes(
       confirmed: true,
       token: nil,
-      language: language
+      language: language_to_learn
     )
     true
   end
