@@ -21,11 +21,12 @@ class TandemsController < ApplicationController
       flash[:notice] = "Ups! something was wrong..."
       redirect_to :back
     end
+    @map_required = true
   end
 
   def edit
-    @participation =  current_user.participations.where(user: current_user, token: params[:token]).first
-    @host_participation = User.where(id: Participation.where(tandem_id: @participation.tandem_id, confirmed: true).pluck(:user_id)).first
+    @participation =  current_user.participations.where(token: params[:token]).first
+    @host_participation = User.where(id: Participation.confirmed.where(tandem_id: @participation.tandem_id).pluck(:user_id)).first
   end
 
  def update
