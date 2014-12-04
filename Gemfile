@@ -38,7 +38,7 @@ gem 'will_paginate', '~> 3.0.6'
 gem 'language_list'
 
 #Google places
-gem 'places', '~> 0.0.1'
+gem 'google_places'
 # Auth
 #gem 'devise'
 

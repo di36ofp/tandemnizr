@@ -1,0 +1,1 @@
+json.places @places, :name, :lat, :lng

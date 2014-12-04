@@ -42,7 +42,8 @@ GEM
     foundation-rails (5.4.5.0)
       railties (>= 3.1.0)
       sass (>= 3.2.0)
-    hashie (3.3.2)
+    google_places (0.27.0)
+      httparty (~> 0.13.1)
     hike (1.2.3)
     httparty (0.13.3)
       json (~> 1.8)
@@ -70,10 +71,6 @@ GEM
     multi_json (1.10.1)
     multi_xml (0.5.5)
     pg (0.17.1)
-    places (0.0.1)
-      hashie
-      httparty
-      json
     rack (1.5.2)
     rack-test (0.6.2)
       rack (>= 1.0)
@@ -132,13 +129,13 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   foundation-rails
+  google_places
   jbuilder (~> 2.0)
   jquery-rails
   jquery-turbolinks
   language_list
   letter_opener
   pg
-  places (~> 0.0.1)
   rails (= 4.1.7)
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
