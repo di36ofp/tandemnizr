@@ -1,3 +1,4 @@
+
 source 'https://rubygems.org'
 
 
@@ -36,6 +37,8 @@ gem 'will_paginate', '~> 3.0.6'
 # Langugae ISO list
 gem 'language_list'
 
+#Google places
+gem 'places', '~> 0.0.1'
 # Auth
 #gem 'devise'
 
