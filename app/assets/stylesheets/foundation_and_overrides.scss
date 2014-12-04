@@ -1366,7 +1366,7 @@ $include-html-global-classes: $include-html-classes;
 
 // Background color for the top bar
    $topbar-bg-color: rgba(255, 255, 255, 0.2);
-   $topbar-bg: none;
+   $topbar-bg: rgba(255, 255, 255, 0);
 
 // Height and margin
    $topbar-height: 80px;

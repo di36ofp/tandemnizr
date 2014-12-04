@@ -54,20 +54,34 @@ google.maps.event.addDomListener(window, 'load', initialize);
 var map = document.getElementById('map-canvas');
 
 function loadMarkers() {
-  $.ajax(url: '/places', dataType: 'json').success(function(data){
-    $.forEach(data, function(index, marker){
+  $.ajax({url: '/places', dataType: 'json'}).success(function(data){
+    $.each(data.places, function(index, place){
       addMarker(place);
     });
   });
 }
 
+function setPlace( name ) {
+  $('#tandem_place').val( name );
+}
+
+$('.place_list li a').click( function() {
+  setPlace($(this).text());
+  return false;
+});
+
 function addMarker ( place ) {
+
   var bar = new google.maps.LatLng(place.lat, place.lng);
 
-  new google.maps.Marker({
+  var marker = new google.maps.Marker({
       position: bar,
       map: map,
       title: place.name
+  });
+
+  google.maps.event.addListener( marker, 'click', function (){
+    setPlace(place.name);
   });
 }
 
