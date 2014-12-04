@@ -54,34 +54,35 @@ google.maps.event.addDomListener(window, 'load', initialize);
 var map = document.getElementById('map-canvas');
 
 function loadMarkers() {
-debugger;
-  var http_request = new XMLHttpRequest();
-      http_host = window.location.origin,
-      http_request.open("GET", http_host + "/places.json", true);
-
-  http_request.onreadystatechange = function () {
-    var done = 4, ok = 200;
-    if (http_request.readyState === done && http_request.status === ok) {
-        var places = JSON.parse(http_request.responseText);
-        for(var i = 0; i <= places.lenght -1; i++) addMarker( places )
-    }
-  };
-
-  http_request.send(null)
-
-
+  $.ajax({url: '/places', dataType: 'json'}).success(function(data){
+    $.each(data.places, function(index, place){
+      addMarker(place);
+    });
+  });
 }
 
+function setPlace( name ) {
+  $('#tandem_place').val( name );
+}
+
+$('.place_list li a').click( function() {
+  setPlace($(this).text());
+  return false;
+});
+
 function addMarker ( place ) {
-  console.log(place.name);
+
   var bar = new google.maps.LatLng(place.lat, place.lng);
 
-  var barMarker = new google.maps.Marker({
+  var marker = new google.maps.Marker({
       position: bar,
       map: map,
       title: place.name
   });
 
+  google.maps.event.addListener( marker, 'click', function (){
+    setPlace(place.name);
+  });
 }
 
 if (map.addEventListener) {
