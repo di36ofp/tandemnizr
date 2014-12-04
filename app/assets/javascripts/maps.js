@@ -1,4 +1,5 @@
-if (typeof google != 'undefined' && google != 'null') {
+if( $( '#map-canvas' ).length > 0 ) {
+
   var map;
   var barcelona = new google.maps.LatLng(41.395603613998205, 2.157095799999979);
 
@@ -51,44 +52,45 @@ if (typeof google != 'undefined' && google != 'null') {
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-}
+  var map = document.getElementById('map-canvas');
 
-var map = document.getElementById('map-canvas');
-
-function loadMarkers() {
-  $.ajax({url: '/places', dataType: 'json'}).success(function(data){
-    $.each(data.places, function(index, place){
-      addMarker(place);
+  function loadMarkers() {
+    $.ajax({url: '/places', dataType: 'json'}).success(function(data){
+      $.each(data.places, function(index, place){
+        addMarker(place);
+      });
     });
-  });
-}
+  }
 
-function setPlace( name ) {
-  $('#tandem_place').val( name );
-}
+  function setPlace( name ) {
+    $('#tandem_place').val( name );
+  }
 
-$('.place_list li a').click( function() {
-  setPlace($(this).text());
-  return false;
-});
-
-function addMarker ( place ) {
-
-  var bar = new google.maps.LatLng(place.lat, place.lng);
-
-  var marker = new google.maps.Marker({
-      position: bar,
-      map: map,
-      title: place.name
+  $('.place_list li a').click( function() {
+    setPlace($(this).text());
+    return false;
   });
 
-  google.maps.event.addListener( marker, 'click', function (){
-    setPlace(place.name);
-  });
-}
+  function addMarker ( place ) {
 
-if (map.addEventListener) {
-  window.addEventListener('load', loadMarkers, false);
-} else if (map.attachEvent) {
-  window.attachEvent('load', loadMarkers);
+    var bar = new google.maps.LatLng(place.lat, place.lng);
+
+    var marker = new google.maps.Marker({
+        position: bar,
+        map: map,
+        title: place.name
+    });
+
+    google.maps.event.addListener( marker, 'click', function (){
+      setPlace(place.name);
+    });
+  }
+
+  if (map.addEventListener) {
+    window.addEventListener('load', loadMarkers, false);
+  } else if (map.attachEvent) {
+    window.attachEvent('load', loadMarkers);
+  }
+
+
 }
