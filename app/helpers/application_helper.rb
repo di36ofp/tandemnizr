@@ -16,7 +16,7 @@ module ApplicationHelper
   end
 
   def map
-    if controller.action_name == 'create' && controller.controller_name == 'tandems'
+    if @map_required
     '<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>'.html_safe
     end
   end

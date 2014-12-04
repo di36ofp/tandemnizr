@@ -2,8 +2,12 @@ class TandemsController < ApplicationController
 
  before_action :set_tandem, only: [:update]
 
+ before_action :set_google_client
+
   def new
     @tandem = @user.tandems.new
+    @results = @client.spots(41.395603613998205, 2.157095799999979, :types => ['cafe'])
+    @map_required = true
   end
 
   def create
@@ -17,11 +21,12 @@ class TandemsController < ApplicationController
       flash[:notice] = "Ups! something was wrong..."
       redirect_to :back
     end
+    @map_required = true
   end
 
   def edit
-    @participation =  current_user.participations.where(user: current_user, token: params[:token]).first
-    @host_participation = User.where(id: Participation.where(tandem_id: @participation.tandem_id, confirmed: true).pluck(:user_id)).first
+    @participation =  current_user.participations.where(token: params[:token]).first
+    @host_participation = User.where(id: Participation.confirmed.where(tandem_id: @participation.tandem_id).pluck(:user_id)).first
   end
 
  def update
@@ -48,5 +53,9 @@ class TandemsController < ApplicationController
 
   def authenticate
     deny_access unless signed_in?
+  end
+
+  def set_google_client
+    @client ||= GooglePlaces::Client.new('AIzaSyDskpMOceCFpY4KnCh9OC-mD6GuQPYR9sE')
   end
 end

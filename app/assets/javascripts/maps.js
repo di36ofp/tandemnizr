@@ -9,7 +9,7 @@ function initialize() {
     {
       elementType: 'labels',
       stylers: [
-        { visibility: 'on' }
+        { "visibility": "off" }
       ]
     },
     {
@@ -21,7 +21,7 @@ function initialize() {
   ];
 
   var mapOptions = {
-    zoom: 12,
+    zoom: 15,
     center: barcelona,
     mapTypeControlOptions: {
       mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
@@ -49,3 +49,44 @@ function initialize() {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
+//////////////////////////////////////////
+var map = document.getElementById('map-canvas');
+
+function loadMarkers() {
+  $.ajax({url: '/places', dataType: 'json'}).success(function(data){
+    $.each(data.places, function(index, place){
+      addMarker(place);
+    });
+  });
+}
+
+function setPlace( name ) {
+  $('#tandem_place').val( name );
+}
+
+$('.place_list li a').click( function() {
+  setPlace($(this).text());
+  return false;
+});
+
+function addMarker ( place ) {
+
+  var bar = new google.maps.LatLng(place.lat, place.lng);
+
+  var marker = new google.maps.Marker({
+      position: bar,
+      map: map,
+      title: place.name
+  });
+
+  google.maps.event.addListener( marker, 'click', function (){
+    setPlace(place.name);
+  });
+}
+
+if (map.addEventListener) {
+  window.addEventListener('load', loadMarkers, false);
+} else if (map.attachEvent) {
+  window.attachEvent('load', loadMarkers);
+}

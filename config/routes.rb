@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
   get '/confirm/:user_id/:token' => 'tandems#edit'
 
+
+  resources :places, :only => [:index, :show]
+
   resources :users do
     resources :languages
   end
