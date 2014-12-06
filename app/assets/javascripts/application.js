@@ -19,6 +19,7 @@
 //= require foundation/foundation.orbit
 //= require foundation/foundation.alert
 //= require foundation/foundation.offcanvas
+//= require foundation/foundation.equalizer
 //
 //= require turbolinks
 //= require_tree .
