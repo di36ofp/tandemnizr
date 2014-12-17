@@ -6,7 +6,7 @@ class TandemsController < ApplicationController
 
   def new
     @tandem = @user.tandems.new
-    @results = @client.spots(41.395603613998205, 2.157095799999979, :types => ['cafe'])
+    @results = @client.spots(41.386060099999995, 2.0473087, :types => ['cafe'])
     @map_required = true
   end
 

@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/logout' => 'sessions#destroy'
   get '/confirm/:user_id/:token' => 'tandems#edit'
+  post '/places' => 'places#index'
 
-
-  resources :places, :only => [:index, :show]
+  # resources :places, :only => [:index, :show]
 
   resources :users do
     resources :languages
