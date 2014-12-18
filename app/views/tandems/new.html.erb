@@ -7,13 +7,7 @@
   <div class="medium-8 columns medium-push-4">
   <h4>Suggested places...</h4>
   <ul class="inline-list place_list">
-    <% @results.each do | result | %>
-    <li>
-      <span class="label secondary tiny">
-        <%= link_to(result.name, "#" ) %>
-      </span>
-    </li>
-    <% end %>
+
   </ul>
   <div id="map-places"></div>
   <div id="map-canvas"></div>

@@ -1,10 +1,15 @@
 if( $( '#map-canvas' ).length > 0 ) {
 
-  var map = $( '#map-canvas');
-  var centerPlace,
+  var map = $( '#map-canvas'),
+      centerPlace,
       pos_lat,
       pos_long,
       tandem_map = 'custom_style';
+
+    var nEnd,
+        nStart = window.performance.now(),
+        oDocumentFragment = document.createDocumentFragment(),
+        oList = $( '.place_list' );
 
   google.maps.event.addDomListener(window, 'load', geolocate);
   $( '.place_list li a' ).click( function(){
@@ -85,9 +90,14 @@ if( $( '#map-canvas' ).length > 0 ) {
         title: place.name
     });
 
+    addPlaceToList( place.name );
     google.maps.event.addListener( marker, 'click', function (){
       setPlace(place.name);
     });
+  }
+  function addPlaceToList( coffee ){
+    var oCoffee = '<li><span class="label secondary tiny"><a href="#">' + coffee + '</span></li>';
+    $( oCoffee ).appendTo(oList);
   }
 
   function setPlace( name ) {
