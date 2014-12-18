@@ -81,6 +81,7 @@ if( $( '#map-canvas' ).length > 0 ) {
         position: bar,
         map: map,
         icon: image,
+        animation: google.maps.Animation.DROP,
         title: place.name
     });
 
