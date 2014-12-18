@@ -4,9 +4,13 @@ if( $( '#map-canvas' ).length > 0 ) {
   var centerPlace,
       pos_lat,
       pos_long,
-      MY_MAPTYPE_ID = 'custom_style';
+      tandem_map = 'custom_style';
 
   google.maps.event.addDomListener(window, 'load', geolocate);
+  $( '.place_list li a' ).click( function(){
+    setPlace( $( this).text());
+    return false;
+  });
 
   function geolocate(){
     navigator.geolocation.getCurrentPosition(currentPosition, defaultCity);
@@ -31,46 +35,28 @@ if( $( '#map-canvas' ).length > 0 ) {
 
     var featureOpts = [
       {
-        elementType: 'labels',
-        stylers: [
-          { "visibility": "on" }
-        ]
-      },
-      {
         featureType: 'water',
         stylers: [
           { color: '#9ECEB4' }
         ]
       }
     ];
-
+    var styledMapOptions = {
+      name: 'Custom Style'
+    };
     var mapOptions = {
       zoom: 15,
       center: centerPlace,
       mapTypeControlOptions: {
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, tandem_map]
       },
-      mapTypeId: MY_MAPTYPE_ID
+      mapTypeId: tandem_map
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-    // var image = 'https://dl.dropboxusercontent.com/u/79814994/cdn.images/logo_hotel_map.png';
-    // var hotelMarker = new google.maps.Marker({
-    //     position: barcelona,
-    //     map: map,
-    //     icon: image
-    // });
-
-    var styledMapOptions = {
-      name: 'Custom Style'
-    };
-
     var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
-
-    map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+    map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    map.mapTypes.set(tandem_map, customMapType);
 
     loadMarkers();
-    $('.place_list li a').on('click', setPlace($(this).text()), false);
   }
 
   function loadMarkers() {
@@ -81,19 +67,20 @@ if( $( '#map-canvas' ).length > 0 ) {
       data: { latitude: pos_lat, longitude: pos_long }
     }).success(function(data){
       $.each(data.places, function(index, place){
-        debugger;
         addMarker(place);
       });
-   }).error(function(data){
+    }).error(function(data){
     //TODO display message on error
-   });
+    });
   }
 
   function addMarker ( place ) {
     var bar = new google.maps.LatLng(place.lat, place.lng);
+    var image = 'https://dl.dropboxusercontent.com/u/79814994/cdn/location-icon.png';
     var marker = new google.maps.Marker({
         position: bar,
         map: map,
+        icon: image,
         title: place.name
     });
 

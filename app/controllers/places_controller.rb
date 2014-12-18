@@ -8,6 +8,7 @@ class PlacesController < ApplicationController
     @places = @client.spots(lat, long, :types => ['cafe'])
   end
 
+  private
   def set_google_client
     @client ||= GooglePlaces::Client.new('AIzaSyDskpMOceCFpY4KnCh9OC-mD6GuQPYR9sE')
   end
