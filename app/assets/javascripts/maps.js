@@ -1,15 +1,11 @@
 if( $( '#map-canvas' ).length > 0 ) {
 
-  var map = $( '#map-canvas'),
+  var map = $( '#map-canvas' ),
+      oList = $( '.place_list' ),
       centerPlace,
       pos_lat,
       pos_long,
       tandem_map = 'custom_style';
-
-    var nEnd,
-        nStart = window.performance.now(),
-        oDocumentFragment = document.createDocumentFragment(),
-        oList = $( '.place_list' );
 
   google.maps.event.addDomListener(window, 'load', geolocate);
   $( '.place_list li a' ).click( function(){
@@ -18,7 +14,11 @@ if( $( '#map-canvas' ).length > 0 ) {
   });
 
   function geolocate(){
-    navigator.geolocation.getCurrentPosition(currentPosition, defaultCity);
+    if ( navigator.geolocation ){
+      navigator.geolocation.getCurrentPosition(currentPosition, defaultCity);
+    }else{
+      //TODO message geolocation is not available
+    }
   }
 
   function currentPosition(pos){
@@ -29,11 +29,13 @@ if( $( '#map-canvas' ).length > 0 ) {
   }
 
   function defaultCity(error_locating){
-    pos_lat = 41.395603613998205;
-    pos_long = 41.395603613998205;
-    centerPlace = new google.maps.LatLng(pos_lat, pos_long);
+    if (error_locating.PERMISSION_DENIED == 1){
+      pos_lat = 41.395603613998205;
+      pos_long = 2.157095799999979;
+      centerPlace = new google.maps.LatLng(pos_lat, pos_long);
+      initialize();
+    }
     //TODO print message for relative goolge position
-    initialize();
   }
 
   function initialize() {
@@ -60,7 +62,6 @@ if( $( '#map-canvas' ).length > 0 ) {
     var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
     map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
     map.mapTypes.set(tandem_map, customMapType);
-
     loadMarkers();
   }
 
