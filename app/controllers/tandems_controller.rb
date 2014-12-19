@@ -2,11 +2,8 @@ class TandemsController < ApplicationController
 
  before_action :set_tandem, only: [:update]
 
- before_action :set_google_client
-
   def new
     @tandem = @user.tandems.new
-    @results = @client.spots(41.395603613998205, 2.157095799999979, :types => ['cafe'])
     @map_required = true
   end
 
@@ -53,9 +50,5 @@ class TandemsController < ApplicationController
 
   def authenticate
     deny_access unless signed_in?
-  end
-
-  def set_google_client
-    @client ||= GooglePlaces::Client.new('AIzaSyDskpMOceCFpY4KnCh9OC-mD6GuQPYR9sE')
   end
 end
